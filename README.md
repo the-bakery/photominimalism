@@ -1,6 +1,6 @@
 Photominimalism
 ===============
 
-[http://the-bakery.github.com/photominimalism](demo link)
+[demo link](http://the-bakery.github.com/photominimalism)
 
 Just Photos.
