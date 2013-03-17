@@ -1,0 +1,98 @@
+<html>
+<head>
+<link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Vollkorn" rel="stylesheet" type="text/css">
+<style>
+html {
+ background-color: black; 
+}
+body { 
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.jpg',     sizingMethod='scale');
+
+    background-color: black;
+    /*background: url('img.jpg')  no-repeat center center fixed;*/
+    background-size: 100% auto;
+
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+.header td{
+  color:white;
+  background-color:rgba(0, 0, 0, .6);
+  padding: 10px;
+  margin:0;
+  font-family:"helvetica", sans-serif;
+  width:auto;
+}
+</style>
+</head>
+<body>
+<table >
+<tr class='header'>
+<td style='min-width:150px !important;'>
+<span style="font-family: 'Permanent Marker', serif;margin:0;font-size:1.5em;"><b>mvv.io</b></span>: photos
+</td>
+<td style='display:none;width:100%;'>lol this is the description</td>
+</tr>
+</td=r>
+<table>
+<tr class='header' style='width:200px !important;text-align:center;'>
+<td style='width:65px;'>next</td>
+<td style='width:65px;'>prev</td>
+</tr>
+</table>
+</tr>
+
+
+</table>
+</body>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type='text/javascript'>
+var fadeouts = [];
+var fadein = null;
+
+$(document).ready(function() {
+  window.hidden = false;
+  fadeouts.push(setTimeout(function() {
+    window.hidden = true;
+    $('.header').fadeOut();
+}, 3000));
+
+
+});
+
+$('body').css('background', "url('img.jpg')  no-repeat center center fixed");
+
+$(document).mousemove(function(event) {
+
+  if(fadeouts) {
+    for(var i = 0; i < fadeouts.length; i++)  {
+      console.log('clearing timeout: ' + i);
+      clearTimeout(fadeouts[i]);
+    }
+  }
+  if (window.hidden) {
+    $('.header').fadeIn();
+    window.hidden = false;
+  }
+  fadeouts.push(setTimeout(function() {
+      if (!window.hidden) {
+          $('.header').fadeOut();
+          window.hidden=true;
+      }
+   }, 3000 
+  ));
+  
+})
+$('body').css('background-size', $(document).width() + "px " + $(document).height() + "px")
+
+$(document).resize(function(){
+  $('body').css('background', "url('img.jpg')  no-repeat center center fixed");
+  //$('body').css('background-size', $(document).width() + "px " + $(document).height() + "px")
+
+})
+</script>
+</html>
