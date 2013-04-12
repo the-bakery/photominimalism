@@ -3,16 +3,8 @@
 <link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Vollkorn" rel="stylesheet" type="text/css">
 <style>
 html {
- background-color: black; 
 }
 body { 
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.jpg',     sizingMethod='scale');
-
-    background-color: black;
-    /*background: url('img.jpg')  no-repeat center center fixed;*/
-    background-size: 100% auto;
-
-
     /* Set up proportionate scaling */
     width: 100%;
     height: auto;
@@ -21,33 +13,37 @@ body {
 
 .header td{
   color:white;
-  background-color:rgba(0, 0, 0, .6);
   padding: 10px;
   margin:0;
   font-family:"helvetica", sans-serif;
   width:auto;
+   background-color:rgba(0, 0, 0, .6);
 }
 </style>
 </head>
 <body>
-<table >
-<tr class='header'>
-<td style='min-width:150px !important;'>
-<span style="font-family: 'Permanent Marker', serif;margin:0;font-size:1.5em;">photominimalism</span>
+<div style='height:80px;margin-top:20px;'>
+<table style='margin:auto;'>
+<tr class='header' style='text-align:center;'>
+<td style='width:65px;'>
+<span style="margin:0;">home</span>
 </td>
-<td style='display:none;width:100%;'>lol this is the description</td>
-</tr>
-</td=r>
-<table>
-<tr class='header' style='width:200px !important;text-align:center;'>
 <td style='width:65px;'>next</td>
 <td style='width:65px;'>prev</td>
 </tr>
-</table>
 </tr>
-
-
 </table>
+
+
+</div>
+<div style='margin:auto;width:14in;width:10in;border:2px black solid;'>
+  <img src='img.jpg' style='width:100%;'/>
+</div>
+<br />
+<div style='font-family:"Helvetica Neue";margin:auto;width:10in;'>
+<p style='margin:0px;padding-bottom:4px;'>Roof-top ladder climbing in San Francisco.</p>
+<p style='margin:0px;'>February 20, 2013</p>
+</div>
 </body>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type='text/javascript'>
@@ -63,9 +59,6 @@ $(document).ready(function() {
 
 
 });
-
-$('body').css('background', "url('img.jpg')  no-repeat center center fixed");
-
 $(document).mousemove(function(event) {
 
   if(fadeouts) {
