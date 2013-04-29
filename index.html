@@ -1,6 +1,7 @@
 <html>
 <head>
 <link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Vollkorn" rel="stylesheet" type="text/css">
+
 <style>
 html {
 }
@@ -37,20 +38,29 @@ body {
 
 </div>
 <div style='margin:auto;width:14in;width:10in;border:2px black solid;'>
-  <img src='img.jpg' style='width:100%;'/>
+  <img id='image' src='img.jpg' style='width:100%;'/>
 </div>
 <br />
 <div style='font-family:"Helvetica Neue";margin:auto;width:10in;'>
 <p style='margin:0px;padding-bottom:4px;'>Roof-top ladder climbing in San Francisco.</p>
 <p style='margin:0px;'>February 20, 2013</p>
 </div>
-</body>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="jquery-1.6.2.min.js"></script>
+<script src="quantize.js"></script>
+<script src="color-thief.js"></script>
 <script type='text/javascript'>
 var fadeouts = [];
 var fadein = null;
 
 $(document).ready(function() {
+   var myimage = $('#image');
+   var color = getDominantColor(myimage);
+   var colors = createPalette(myimage, 5);
+   
+   $('body').css('background-color', 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')');
+   $('body').css('color', 'rgb(' + colors[2][0] + ',' + colors[2][1] + ',' + colors[2][2] + ')');
+   //$('.header').css('background-color', 'rgb(' + colors[3][0] + ',' + colors[3][1] + ',' + colors[3][2] + ')');
+
   window.hidden = false;
   fadeouts.push(setTimeout(function() {
     window.hidden = true;
@@ -82,10 +92,6 @@ $(document).mousemove(function(event) {
 })
 $('body').css('background-size', $(document).width() + "px " + $(document).height() + "px")
 
-$(document).resize(function(){
-  $('body').css('background', "url('img.jpg')  no-repeat center center fixed");
-  //$('body').css('background-size', $(document).width() + "px " + $(document).height() + "px")
-
-})
 </script>
+</body>
 </html>
